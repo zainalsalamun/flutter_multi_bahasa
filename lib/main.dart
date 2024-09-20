@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_multi_bahasa/localization/delegation.dart';
 import 'package:flutter_multi_bahasa/page/home_page.dart';
 
+import 'localization/constant.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,11 +32,11 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void didChangeDependencies() async {
-    // getLocale().then((locale) {
-    //   setState(() {
-    //     _locale = locale;
-    //   });
-    // });
+    getLocale().then((locale) {
+      setState(() {
+        _locale = locale;
+      });
+    });
     super.didChangeDependencies();
   }
 
@@ -53,11 +55,10 @@ class _MyAppState extends State<MyApp> {
       home: const HomePage(),
       supportedLocales: const [
         Locale('en', ''),
-        Locale('ar', ''),
-        Locale('hi', '')
+        Locale('in', ''),
       ],
       localizationsDelegates: const [
-        //AppLocalizationsDelegate(),
+        AppLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
