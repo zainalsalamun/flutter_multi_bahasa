@@ -17,7 +17,7 @@ Future<Locale> getLocale() async {
 }
 
 Locale _locale(String languageCode) {
-  return languageCode != null
+  return languageCode.isNotEmpty
       ? Locale(languageCode, '')
       : const Locale('en', '');
 }
